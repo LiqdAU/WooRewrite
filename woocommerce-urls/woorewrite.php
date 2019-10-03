@@ -12,12 +12,16 @@ class WooRewrite {
         add_filter('term_link', array($this, 'filter_permalink'), 10, 3);
         // Update product links
         add_filter('post_type_link', array($this, 'filter_product_permalink'), 10, 2);
+
+        // Add shop page to breadcrumbs
+        add_filter( 'woocommerce_get_breadcrumb', array($this, 'filter_breadcrumbs') , 10, 1);
     }
 
 
     /* Hierarchical URL Layout:
      *      /endpoint/                               =>  Shop Page (WooRewrite Settings)
      *      /endpoint/category-name/                 =>  Category
+     *      /endpoint/category-name/page/2/          =>  Category (Set Page)
      *      /endpoint/category-name/product-name/    =>  Product
     */
     public function add_rewrites() {
@@ -26,6 +30,9 @@ class WooRewrite {
 
         // Rewrite /endpoint/category-name/ to Category Archive page
         add_rewrite_rule($this->get_endpoint(true) . '([^/]+)/?$', 'index.php?product_cat=$matches[1]', 'top');
+
+        // Rewrite /endpoint/category-name/page/0/ to Archive Page Number
+        add_rewrite_rule($this->get_endpoint(true) . '([^/]+)/page/([^/]+)?$', 'index.php?product_cat=$matches[1]&paged=$matches[2]', 'top');
 
         // Rewrite /endpoint/category-name/product-name/ to Single Product page
         add_rewrite_rule($this->get_endpoint(true) . '([^/]+)/([^/]+)/?$', 'index.php?product=$matches[2]', 'top');
@@ -45,6 +52,9 @@ class WooRewrite {
         return is_numeric($_shoppage) ? intval($_shoppage) : false;
     }
 
+    public function is_shop_page() {
+        return $this->get_shop_id() === get_queried_object_id();
+    }
 
     public function filter_product_permalink($url, $post) {
         if ($post->post_type === 'product') {
@@ -63,6 +73,17 @@ class WooRewrite {
         return $url;
     }
 
+    // Add shop page to WooCommerce breadcrumbs
+    public function filter_breadcrumbs($crumbs) {
+        if (!$this->is_shop_page()) {
+            $home = array_shift($crumbs);
+            array_unshift($crumbs, $home, array(
+                get_the_title($this->get_shop_id()),
+                home_url($this->get_endpoint())
+            ));
+        }
+        return $crumbs;
+    }
 
     // Options Page
     public function handle_admin_page() {
