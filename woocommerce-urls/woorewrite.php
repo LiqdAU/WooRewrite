@@ -66,9 +66,13 @@ class WooRewrite {
 
     // Options Page
     public function handle_admin_page() {
+        if (isset($_GET['flush']) && $_GET['flush'] === 'true') {
+            flush_rewrite_rules();
+            header('Location: admin.php?page=woorewrite');
+        }
+
         if (isset($_GET['endpoint'])) {
             $this->update_options();
-            flush_rewrite_rules();
         } else {
             require(__DIR__ . '/inc/admin.php');
         }
@@ -94,7 +98,7 @@ class WooRewrite {
             update_option('woorewrite_shop_page', $_GET['shoppage']);
         }
 
-        header('Location: admin.php?page=woorewrite');
+        header('Location: admin.php?page=woorewrite&flush=true');
     }
 
     // Static Instance

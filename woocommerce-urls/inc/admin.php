@@ -17,7 +17,12 @@
                 ?>
             </select>
         </label>
-        <button type="submit" class="button button-primary button-large">Update</button>
+        <div class="button-wrapper">
+            <button type="submit" class="button button-primary button-large">Update</button>
+        </div>
+        <div class="other-info">
+            <p>If your endpoint is set to <b>/shop/</b> the default WooCommerce endpoint will be overwritten.</p>
+        </div>
     </form>
 </div>
 <style type="text/css">
@@ -44,7 +49,7 @@
         margin-bottom: 20px;
     }
 
-    .woorewrite form::after,
+    .woorewrite .button-wrapper::after,
     .woorewrite label::after {
         clear: both;
         content: '';
@@ -66,5 +71,16 @@
 
     .woorewrite button {
         float: right;
+    }
+
+    .woorewrite .other-info {
+        opacity: 0.8;
+        clear: both;
+        margin-top: 10px;
+    }
+
+    .woorewrite .other-info p {
+        margin: 0;
+        margin-top: 20px;
     }
 </style>
