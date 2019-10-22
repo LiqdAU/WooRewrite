@@ -9,10 +9,12 @@
         <label for="shop-page">
             <span>Shop Page</span>
             <select id="shop-page" name="shoppage">
+                <option value="">Use default</option>
+                <option disabled="disabled">--------------</option>
                 <?php
                 foreach (get_pages() as $page) {
                     $_current = WooRewrite::get()->get_shop_id() === $page->ID;
-                    echo '<option value="' . $page->ID . ($_current ? '" selected="selected' : '') . '">' . $page->post_title . '</option>';
+                    echo '<option value="' . $page->ID . ($_current ? '" selected="selected' : '') . '">' . (empty($page->post_title) ? '[ Untitled Page ]' : $page->post_title) . '</option>';
                 }
                 ?>
             </select>

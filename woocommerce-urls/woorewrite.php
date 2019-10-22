@@ -26,7 +26,9 @@ class WooRewrite {
     */
     public function add_rewrites() {
         // Rewrite /endpoint/ to Shop page (Overrides WooCommerce shop endpoint)
-        add_rewrite_rule($this->get_endpoint(true) . '?$', 'index.php?page_id=' . $this->get_shop_id(), 'top');
+        if (is_numeric($this->get_shop_id()) && $this->get_shop_id() >= 0) {
+            add_rewrite_rule($this->get_endpoint(true) . '?$', 'index.php?page_id=' . $this->get_shop_id(), 'top');
+        }
 
         // Rewrite /endpoint/category-name/ to Category Archive page
         add_rewrite_rule($this->get_endpoint(true) . '([^/]+)/?$', 'index.php?product_cat=$matches[1]', 'top');
@@ -53,7 +55,7 @@ class WooRewrite {
     }
 
     public function is_shop_page() {
-        return $this->get_shop_id() === get_queried_object_id();
+        return is_numeric($this->get_shop_id()) ? ($this->get_shop_id() === get_queried_object_id()) : is_shop();
     }
 
     public function filter_product_permalink($url, $post) {
