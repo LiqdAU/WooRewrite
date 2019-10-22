@@ -80,7 +80,7 @@ class WooRewrite {
         if (!$this->is_shop_page() && is_woocommerce()) {
             $home = array_shift($crumbs);
             array_unshift($crumbs, $home, array(
-                get_the_title($this->get_shop_id()),
+                is_numeric($this->get_shop_id()) ? get_the_title($this->get_shop_id()) : 'Shop',
                 home_url($this->get_endpoint())
             ));
         }
