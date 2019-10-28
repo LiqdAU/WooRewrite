@@ -60,7 +60,13 @@ class WooRewrite {
 
     public function filter_product_permalink($url, $post) {
         if ($post->post_type === 'product') {
-            $term = array_pop(get_the_terms($post->ID, 'product_cat'));
+            $terms = get_the_terms($post->ID, 'product_cat');
+            $term = null;
+            if (!$terms) {
+                $term = get_term(intval(get_option('default_category')));
+            } else {
+                $term = array_pop($terms);
+            }
             $url = trailingslashit(home_url($this->get_endpoint()) . $term->slug . '/' . $post->post_name);
         }
         return $url;
