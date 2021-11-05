@@ -1,7 +1,8 @@
 # WooRewrite
  
-WordPress Plugin to rewrite WooCommerce URLs to use a hierarchical structure
+WordPress Plugin to rewrite WooCommerce URLs to use a hierarchical structure.
 
+#### Installation
 1. Install
 2. Navigate to WooCommerce → WooRewrite
 3. Set endpoint to desired shop endpoint
@@ -44,4 +45,9 @@ For example, if you set the endpoint to "shop" (default), the following rewrites
 
 It can also be used to load a custom page template for your shop page, to allow for completely custom Shop pages without modifying WooCommerce templates.
 
+--- 
+
 WooRewrite will also add the Shop page to the WooCommerce breadcrumbs output.
+
+For example `Home → Shop → Category → Product`
+instead of `Home → Category → Product`
