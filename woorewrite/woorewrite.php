@@ -217,7 +217,10 @@ class WooRewrite {
 
       if (isset($_GET['shoppage'])) {
         update_option('woorewrite_shop_page', $_GET['shoppage']);
-        update_option('woocommerce_shop_page_id', $_GET['shoppage']);
+
+        if (!empty($_GET['shoppage'])) {
+          update_option('woocommerce_shop_page_id', $_GET['shoppage']);
+        }
       }
 
       if (isset($_GET['shoppage_template'])) {
