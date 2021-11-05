@@ -1,6 +1,6 @@
 # WooRewrite
  
-Plugin to rewrite WooCommerce URLs to use a hierarchical structure
+WordPress Plugin to rewrite WooCommerce URLs to use a hierarchical structure
 
 1. Install
 2. Navigate to WooCommerce → WooRewrite
