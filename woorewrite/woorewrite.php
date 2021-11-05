@@ -122,6 +122,15 @@ class WooRewrite {
       return is_numeric($this->get_shop_id()) ? ($this->get_shop_id() === get_queried_object_id()) : is_shop();
     }
 
+    public function get_shop_page() {
+      $page_id = $this->get_shop_id();
+      return is_numeric($page_id) ? get_post($page_id) : woocommerce_get_page_id( 'shop' );
+    }
+
+    public function get_shop_page_url() {
+      return get_the_permalink($this->get_shop_page());
+    }
+
     public function filter_product_permalink($url, $post) {
       if ($post->post_type === 'product') {
         $terms = get_the_terms($post->ID, 'product_cat');
@@ -221,7 +230,7 @@ class WooRewrite {
     // Static Instance
     public static $instance;
     public static function get() { return self::$instance; }
-    public static function set($i) { self::$instance = $i; }
+    public static function set($i) { global $woorewrite; $woorewrite = self::$instance = $i; }
 
     public static function slashit($string) {
       $string = trailingslashit($string);

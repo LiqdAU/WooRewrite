@@ -43,9 +43,22 @@
             <div class="other-info">
                 <p>If your endpoint is set to <b>/shop/</b> the default WooCommerce endpoint will be overwritten.</p>
             </div>
+            <p class="woorewrite-thanks">&copy; <?= date('Y'); ?> <a href="https://liqd.com.au/" target="_blank">Liqd</a> - Thankyou for using our plugin!</p>
         </form>
     </div>
     <style type="text/css">
+        .woorewrite-thanks {
+          margin-top: 50px;
+          margin-bottom: 0;
+          color: #7c7c7c;
+          font-size: 11px;
+        }
+
+        .woorewrite-thanks a {
+          color: #7c7c7c;
+          text-decoration: none;
+        }
+
         .woorewrite-wrapper {
             margin-top: 50px;
         }
@@ -80,6 +93,7 @@
         .woorewrite form {
             box-sizing: border-box;
             padding: 20px;
+            padding-bottom: 0;
         }
 
         .woorewrite label  {
