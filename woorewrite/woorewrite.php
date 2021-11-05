@@ -124,7 +124,7 @@ class WooRewrite {
 
     public function get_shop_page() {
       $page_id = $this->get_shop_id();
-      return is_numeric($page_id) ? get_post($page_id) : woocommerce_get_page_id( 'shop' );
+      return is_numeric($page_id) ? get_post($page_id) : wc_get_page_id( 'shop' );
     }
 
     public function get_shop_page_url() {

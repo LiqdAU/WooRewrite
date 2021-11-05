@@ -5,7 +5,7 @@
  * Plugin Name: WooRewrite
  * Plugin URI:  https://www.liqd.com.au/wordpress/
  * Description: Rewrites WooCommerce URLs to use a hierarchical format.
- * Version:     2.0.2
+ * Version:     2.0.3
  * Author:      Liqd
  * Author URI:  https://www.liqd.com.au/
  * Text Domain: woorewrite
