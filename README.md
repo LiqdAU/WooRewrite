@@ -21,6 +21,7 @@ The plugin will also look for the following templates before loading the WooComm
 ### What this plugin does
 
 This plugin is mainly to rewrite the URLs into a more hierarchical structure.
+It can also be used to load a custom page template for your shop page, to allow for completely custom Shop pages without modifying WooCommerce templates.
 
 For example, if you set the endpoint to "shop" (default), the following rewrites will be applied:
 
