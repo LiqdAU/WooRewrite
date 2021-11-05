@@ -40,6 +40,8 @@ For example, if you set the endpoint to "shop" (default), the following rewrites
 ###### Note
 *{ } denotes dynamic portion of the url*
 
+---
+
 It can also be used to load a custom page template for your shop page, to allow for completely custom Shop pages without modifying WooCommerce templates.
 
 WooRewrite will also add the Shop page to the WooCommerce breadcrumbs output.
