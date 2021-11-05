@@ -2,6 +2,8 @@
  
 WordPress Plugin to rewrite WooCommerce URLs to use a hierarchical structure.
 
+Some of the functionality in this plugin can be achieved by altering the WP permalink settings, however this plugin simplifies the process and adds some additional little tweaks for maximum compatibility.
+
 #### Installation
 1. Install
 2. Navigate to WooCommerce → WooRewrite
