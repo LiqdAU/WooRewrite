@@ -43,10 +43,12 @@ For example, if you set the endpoint to "shop" (default), the following rewrites
 
 ---
 
+#### Custom Page Templates
 It can also be used to load a custom page template for your shop page, to allow for completely custom Shop pages without modifying WooCommerce templates.
 
 --- 
 
+#### Breadcrumbs
 WooRewrite will also add the Shop page to the WooCommerce breadcrumbs output.
 
 For example `Home → Shop → Category → Product`
