@@ -39,3 +39,5 @@ For example, if you set the endpoint to "shop" (default), the following rewrites
 
 ###### Note
 *{ } defines dynamic portion of the url*
+
+WooRewrite will also add the Shop page to the WooCommerce breadcrumbs output.
