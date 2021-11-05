@@ -16,7 +16,7 @@ You can optionally select a page to use as the shop page, and if you would like 
 
 --- 
 
-### What this plugin does
+#### What this plugin does
 
 This plugin is mainly to rewrite the URLs into a more hierarchical structure.
 
